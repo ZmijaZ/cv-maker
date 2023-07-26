@@ -3,6 +3,8 @@ import { useState } from "react";
 import { emptyCv } from "./CV/emptyCv";
 import CVForm from "./CV/CVForm";
 import CV from "./CV/CV";
+import Button from "./utils/Button";
+import { exampleCv } from "./CV/exampleCv";
 
 const Main = () => {
   const [cv, setCv] = useState(emptyCv);
@@ -100,6 +102,16 @@ const Main = () => {
     });
   };
 
+  //buttons
+  const loadExampleCv = () => {
+    setCv(exampleCv);
+  };
+
+  //TO-DO make this work
+  const handlePrint = () => {
+    print(CV);
+  };
+
   return (
     <div>
       <h1>Main part </h1>
@@ -118,6 +130,8 @@ const Main = () => {
         educationInfo={cv.educationInfo}
         experienceInfo={cv.experienceInfo}
       ></CV>
+      <Button onClick={loadExampleCv} text="Example"></Button>
+      <Button onClick={handlePrint} text="Print"></Button>
     </div>
   );
 };
