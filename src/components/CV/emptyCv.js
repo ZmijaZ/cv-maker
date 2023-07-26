@@ -1,5 +1,5 @@
 let emptyCv = {
-  personal: {
+  personalInfo: {
     firstName: "",
     lastName: "",
     email: "",
@@ -10,6 +10,15 @@ let emptyCv = {
       id: 1,
       schoolName: "",
       major: "",
+      from: "",
+      to: "",
+    },
+  ],
+  experienceInfo: [
+    {
+      id: 1,
+      companyName: "",
+      position: "",
       from: "",
       to: "",
     },

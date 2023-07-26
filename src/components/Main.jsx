@@ -2,19 +2,22 @@ import { useState } from "react";
 import Education from "./CV/Education";
 import Personal from "./CV/Personal";
 import { emptyCv } from "./CV/emptyCv";
+import Experience from "./CV/Experience";
 
 const Main = () => {
   const [cv, setCv] = useState(emptyCv);
 
+  //Personal
   const handleChangePersonal = (e) => {
     const { name, value } = e.target;
 
     setCv((prevState) => ({
       ...prevState,
-      personal: { ...prevState.personal, [name]: value },
+      personalInfo: { ...prevState.personalInfo, [name]: value },
     }));
   };
 
+  //Education
   const handleChangeEducation = (e, id) => {
     const { name, value } = e.target;
 
@@ -55,11 +58,53 @@ const Main = () => {
     }));
   };
 
+  //Experience
+
+  const handleChangeExperience = (e, id) => {
+    const { name, value } = e.target;
+
+    setCv((prevState) => {
+      const items = prevState.experienceInfo.map((item) => {
+        if (id === item.id) {
+          return { ...item, [name]: value };
+        } else {
+          return item;
+        }
+      });
+      return { ...prevState, experienceInfo: items };
+    });
+  };
+
+  const handleRemoveExperience = (id) => {
+    setCv((prevState) => {
+      const items = prevState.experienceInfo.filter((item) => item.id !== id);
+      return { ...prevState, experienceInfo: items };
+    });
+  };
+
+  const handleAddExperience = () => {
+    setCv((prevState) => {
+      return {
+        ...prevState,
+        experienceInfo: [
+          ...prevState.experienceInfo,
+          {
+            id: prevState.experienceInfo.length + 1,
+            companyName: "",
+            position: "",
+            from: "",
+            to: "",
+          },
+        ],
+      };
+    });
+  };
+
   return (
     <div>
       <h1>Main part </h1>
       <Personal
-        personalInfo={cv.personal}
+        personalInfo={cv.personalInfo}
         onChange={handleChangePersonal}
       ></Personal>
       <Education
@@ -68,6 +113,12 @@ const Main = () => {
         onRemove={handleRemoveEducation}
         onAdd={handleAddEducation}
       ></Education>
+      <Experience
+        experience={cv.experienceInfo}
+        onChange={handleChangeExperience}
+        onAdd={handleAddExperience}
+        onRemove={handleRemoveExperience}
+      ></Experience>
     </div>
   );
 };
