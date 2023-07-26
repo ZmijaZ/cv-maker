@@ -1,8 +1,7 @@
 import Input from "../utils/Input";
 
 const Personal = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const { personalInfo } = props;
+  const { personalInfo, onChange } = props;
 
   return (
     <div>
@@ -11,25 +10,29 @@ const Personal = (props) => {
         type="text"
         value={personalInfo.firstName}
         name="firstName"
-        placeholder={"First name"}
+        placeholder="First name"
+        onChange={(e) => onChange(e)}
       ></Input>
       <Input
         type="text"
         value={personalInfo.lastName}
         name="lastName"
-        placeholder={"Last name"}
+        placeholder="Last name"
+        onChange={(e) => onChange(e)}
       ></Input>
       <Input
         type="email"
         value={personalInfo.email}
         name="email"
-        placeholder={"Email"}
+        placeholder="Email"
+        onChange={(e) => onChange(e)}
       ></Input>
       <Input
         type="text"
         value={personalInfo.phoneNumber}
         name="phoneNumber"
-        placeholder={"Phone number"}
+        placeholder="Phone number"
+        onChange={(e) => onChange(e)}
       ></Input>
     </div>
   );

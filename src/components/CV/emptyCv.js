@@ -1,5 +1,5 @@
 let emptyCv = {
-  personalInfo: {
+  personal: {
     firstName: "",
     lastName: "",
     email: "",
@@ -7,6 +7,7 @@ let emptyCv = {
   },
   educationInfo: [
     {
+      id: 1,
       schoolName: "",
       major: "",
       from: "",
@@ -15,4 +16,4 @@ let emptyCv = {
   ],
 };
 
-export default emptyCv;
+export { emptyCv };

@@ -1,6 +1,6 @@
 const Input = (props) => {
   // eslint-disable-next-line react/prop-types
-  const { type, value, placeholder, name } = props;
+  const { type, value, placeholder, name, onChange } = props;
 
   return (
     <input
@@ -8,6 +8,7 @@ const Input = (props) => {
       value={value}
       name={name}
       placeholder={placeholder}
+      onChange={onChange}
     ></input>
   );
 };
