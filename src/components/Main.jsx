@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Education from "./CV/Education";
-import Personal from "./CV/Personal";
+
 import { emptyCv } from "./CV/emptyCv";
-import Experience from "./CV/Experience";
+import CVForm from "./CV/CVForm";
+import CV from "./CV/CV";
 
 const Main = () => {
   const [cv, setCv] = useState(emptyCv);
@@ -103,22 +103,21 @@ const Main = () => {
   return (
     <div>
       <h1>Main part </h1>
-      <Personal
+      <CVForm
+        handleChangePersonal={handleChangePersonal}
+        handleChangeEducation={handleChangeEducation}
+        handleAddEducation={handleAddEducation}
+        handleRemoveEducation={handleRemoveEducation}
+        handleChangeExperience={handleChangeExperience}
+        handleAddExperience={handleAddExperience}
+        handleRemoveExperience={handleRemoveExperience}
+        cv={cv}
+      ></CVForm>
+      <CV
         personalInfo={cv.personalInfo}
-        onChange={handleChangePersonal}
-      ></Personal>
-      <Education
-        education={cv.educationInfo}
-        onChange={handleChangeEducation}
-        onRemove={handleRemoveEducation}
-        onAdd={handleAddEducation}
-      ></Education>
-      <Experience
-        experience={cv.experienceInfo}
-        onChange={handleChangeExperience}
-        onAdd={handleAddExperience}
-        onRemove={handleRemoveExperience}
-      ></Experience>
+        educationInfo={cv.educationInfo}
+        experienceInfo={cv.experienceInfo}
+      ></CV>
     </div>
   );
 };
