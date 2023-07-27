@@ -20,7 +20,7 @@ const CV = (props) => {
   ));
 
   return (
-    <div>
+    <div className="cv-report">
       <h1>CV</h1>
       <section>
         <h2>Personal</h2>

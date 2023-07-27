@@ -5,6 +5,8 @@ import CVForm from "./CV/CVForm";
 import CV from "./CV/CV";
 import Button from "./utils/Button";
 import { exampleCv } from "./CV/exampleCv";
+import SaveCV from "./CV/SaveCV";
+import jsPDF from "jspdf";
 
 const Main = () => {
   const [cv, setCv] = useState(emptyCv);
@@ -130,8 +132,11 @@ const Main = () => {
   };
 
   //TO-DO make this work
-  const handlePrint = () => {
-    print(CV);
+  const generatePDF = () => {
+    const report = new jsPDF("portrait", "pt", "a4");
+    report.html(document.querySelector(".cv-report")).then(() => {
+      report.save("cv.pdf");
+    });
   };
 
   return (
@@ -153,7 +158,7 @@ const Main = () => {
         experienceInfo={cv.experienceInfo}
       ></CV>
       <Button onClick={loadExampleCv} text="Example"></Button>
-      <Button onClick={handlePrint} text="Print"></Button>
+      <Button onClick={generatePDF} text="Download"></Button>;
     </div>
   );
 };
