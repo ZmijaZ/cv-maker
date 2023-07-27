@@ -28,6 +28,8 @@ const CV = (props) => {
         <h3>{personalInfo.lastName}</h3>
         <h3>{personalInfo.email}</h3>
         <h3>{personalInfo.phoneNumber}</h3>
+        <p>{personalInfo.textArea}</p>
+        <img src={personalInfo.photo}></img>
       </section>
 
       <section>

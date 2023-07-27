@@ -1,4 +1,6 @@
+import FileInput from "../utils/FileInput";
 import Input from "../utils/Input";
+import TextArea from "../utils/TextArea";
 
 const Personal = (props) => {
   const { personalInfo, onChange } = props;
@@ -34,6 +36,20 @@ const Personal = (props) => {
         placeholder="Phone number"
         onChange={(e) => onChange(e)}
       ></Input>
+      <FileInput
+        type="file"
+        value={personalInfo.photo}
+        name="photo"
+        placeholder=""
+        onChange={(e) => onChange(e)}
+      ></FileInput>
+
+      <TextArea
+        name="textArea"
+        placeholder="Write something about yourself"
+        value={personalInfo.textArea}
+        onChange={(e) => onChange(e)}
+      ></TextArea>
     </div>
   );
 };

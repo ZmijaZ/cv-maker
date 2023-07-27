@@ -18,7 +18,7 @@ const Experience = (props) => {
     <div>
       <h1>ExperienceInfo</h1>
       {experiences}
-      <Button onClick={onAdd} text="Add"></Button>
+      <Button onClick={onAdd} text="Add experience"></Button>
     </div>
   );
 };

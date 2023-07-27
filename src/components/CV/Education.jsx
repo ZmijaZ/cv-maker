@@ -18,7 +18,7 @@ const Education = (props) => {
     <div>
       <h1>Education info</h1>
       {educations}
-      <Button text="Add" onClick={onAdd}></Button>
+      <Button text="Add education" onClick={onAdd}></Button>
     </div>
   );
 };

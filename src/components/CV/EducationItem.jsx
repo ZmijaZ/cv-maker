@@ -34,7 +34,7 @@ const EducationItem = (props) => {
         placeholder="To"
         onChange={(e) => onChange(e, id)}
       ></Input>
-      <Button onClick={() => onRemove(id)} text="Remove"></Button>
+      <Button onClick={() => onRemove(id)} text="Remove education"></Button>
     </div>
   );
 };

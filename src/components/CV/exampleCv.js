@@ -4,6 +4,7 @@ let exampleCv = {
     lastName: "Doe",
     email: "john@doe.smh",
     phoneNumber: "+113625098",
+    photo: "",
   },
   educationInfo: [
     {

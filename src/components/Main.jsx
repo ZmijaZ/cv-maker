@@ -11,12 +11,34 @@ const Main = () => {
 
   //Personal
   const handleChangePersonal = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
+
+    if (type === "file") {
+      handleChangeFile(e);
+      return;
+    }
 
     setCv((prevState) => ({
       ...prevState,
       personalInfo: { ...prevState.personalInfo, [name]: value },
     }));
+  };
+
+  const handleChangeFile = (e) => {
+    const { name } = e.target;
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setCv((prevState) => {
+        return {
+          ...prevState,
+          personalInfo: { ...prevState.personalInfo, [name]: reader.result },
+        };
+      });
+    };
+    reader.readAsDataURL(file);
   };
 
   //Education

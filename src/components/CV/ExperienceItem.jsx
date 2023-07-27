@@ -34,7 +34,8 @@ const ExperienceItem = (props) => {
         placeholder="To"
         onChange={(e) => onChange(e, id)}
       ></Input>
-      <Button onClick={() => onRemove(id)} text="Remove"></Button>
+      {/* <ExperienceItemTasks></ExperienceItemTasks> */}
+      <Button onClick={() => onRemove(id)} text="Remove experience"></Button>
     </div>
   );
 };

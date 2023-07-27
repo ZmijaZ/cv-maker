@@ -1,9 +1,13 @@
+import emptyAvatar from "../../empty_avatar.png";
+
 let emptyCv = {
   personalInfo: {
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
+    textArea: "",
+    photo: emptyAvatar,
   },
   educationInfo: [
     {
